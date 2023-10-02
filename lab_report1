@@ -1,0 +1,26 @@
+---
+
+![Image](cdScreenshot.PNG)
+```
+Entering cd without an argument in the command terminal does nothing.
+Entering cd and a directory does nothing.
+Entering cd and a file!!!!!!!!!!!!!! fix!!!!!!!!!!!!!
+```
+![Image](lsScreenshot.PNG)
+```
+Entering ls without an argument returns lecture1.
+Entering ls with the directory lecture1 returns 4 things: Hello.class, Hello.java, messages, and README.
+Entering ls with the file en-us.txt returns !!!!!!!!!!!!!!!!! the text en-us.txt.
+```
+![Image](catNoarg.PNG)
+```
+Entering cat without an argument does nothing, but the terminal goes on to the next line. Entering any text causes the terminal to return the same text.
+```
+![Image](catDirectory.PNG)
+```
+Entering cat with the directory messages returns the statement that messages is a directory.
+```
+![Image](catFile.PNG)
+```
+Entering cat with the file en-us.txt returns the text within the .txt file, "Hello World!"
+```
