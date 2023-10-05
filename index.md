@@ -29,5 +29,5 @@
 ```
 ![Image](catFile.PNG)
 ```
-3. Entering cat with the file en-us.txt returns the text within the .txt file, "Hello World!" The working directory is /home.
+3. Entering cat with the file en-us.txt returns the text within the .txt file, "Hello World!" The working directory is /home/lecture1/messages.
 ```
