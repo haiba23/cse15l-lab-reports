@@ -4,8 +4,8 @@
 ---
 # CD
 ![Image](cdScreenshot.PNG)
-
-1. Entering cd without an argument in the command terminal does nothing. The working directory is /home.
+![Image](CD Retry.PNG)
+1. Entering cd without an argument in the command terminal when the working directory is /home does nothing. However, based on the second picture, when entering cd   without an argument while in a different directory (/lecture1), the current directory is changed to /home. From this, cd without an argument sets the current       directory to /home. The working directory is /home.
   The output implies that this is not an error, as the default directory and current directory in the
   workspace is /home, and there is no change to that.
 2. Entering cd and a directory changes the working directory to /home/lecture1. The working directory
