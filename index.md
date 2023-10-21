@@ -77,3 +77,16 @@ num increases by 1 to become 2 since this is the second request. entry is set to
 
 
 # Step 2
+The path to the private key for the SSH key:
+![Image]()
+The path is 
+
+The path to the public key for the SSH key:
+![Image]()
+The path is 
+
+Logging into ieng6 with my course-specific account on the terminal:
+![Image]()
+
+# Step 3
+In Weeks 2 and 3 I learned about the ssh command and how I could log into my CS15L UCSD account from anywhere. The most interesting part about the ssh command was how I could remove the need to type in the password every time in VSC. I'm still a little confused on how it stores folders and how I can access and change them though.
