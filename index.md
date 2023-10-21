@@ -57,8 +57,12 @@
 # Step 1
 
 # The Code
+![Image](StringServerPT1.PNG) 
+![Image](StringServerPT2.PNG) 
+
+
 Screenshot 1
-![Image]() 
+![Image](ScreenshotOfStringServer1.PNG) 
 My code calls handleRequest(URI url).
 
 The argument of handleRequest is /add-message?s=Bonjour.
@@ -66,7 +70,7 @@ The values of the relevant fields are num = 0, entry = "", and list = "" since t
 
 num increases by 1 to represent the first added message. entry is set to "1. Bonjour" as that is the number set by num and the query after the equal sign, "Bonjour". list is set to "1. Bonjour" because it is the first entry of the list. There is a \n after each entry to make a new line for each subsequent entry.
 
-![Image]()
+![Image](ScreenshotOfStringServer2.PNG)
 Screenshot 2
 My code calls handleRequest(URI url).
 
@@ -78,15 +82,15 @@ num increases by 1 to become 2 since this is the second request. entry is set to
 
 # Step 2
 The path to the private key for the SSH key:
-![Image]()
-The path is 
+![Image](TruePrivateSSH.PNG)
+The path is in /home/linux/ieng6/cs15lfa23/cs15lfa23bl/.ssh/id_rsa.
 
 The path to the public key for the SSH key:
-![Image]()
-The path is 
+![Image](TruePublicSSH.PNG)
+The path is in /home/.ssh/id_ed25519.
 
 Logging into ieng6 with my course-specific account on the terminal:
-![Image]()
+![Image](TerminalLogin.PNG)
 
 # Step 3
 In Weeks 2 and 3 I learned about the ssh command and how I could log into my CS15L UCSD account from anywhere. The most interesting part about the ssh command was how I could remove the need to type in the password every time in VSC. I'm still a little confused on how it stores folders and how I can access and change them though.
