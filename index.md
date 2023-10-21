@@ -98,18 +98,23 @@ entry. Again, \n denotes a new line.
 
 # Step 2
 The path to the private key for the SSH key:
+
 ![Image](TruePrivateSSH.PNG)
 
 
 The path is in /home/linux/ieng6/cs15lfa23/cs15lfa23bl/.ssh/id_rsa.
 
+
+
 The path to the public key for the SSH key:
+
 ![Image](TruePublicSSH.PNG)
 
 
 The path is in /home/.ssh/id_ed25519.
 
 Logging into ieng6 with my course-specific account on the terminal:
+
 ![Image](TerminalLogin.PNG)
 
 # Step 3
