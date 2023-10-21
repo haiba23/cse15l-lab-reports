@@ -50,3 +50,30 @@
   The working directory is /home/lecture1/messages. The output shows that this is not an error,
   as cat is used to read files like en-us.txt.
 
+
+
+*Lab Report 2*
+---
+# Step 1
+
+# The Code
+Screenshot 1
+![Image]() 
+My code calls handleRequest(URI url).
+
+The argument of handleRequest is /add-message?s=Bonjour.
+The values of the relevant fields are num = 0, entry = "", and list = "" since those are the starting values when opening a new server.
+
+num increases by 1 to represent the first added message. entry is set to "1. Bonjour" as that is the number set by num and the query after the equal sign, "Bonjour". list is set to "1. Bonjour" because it is the first entry of the list. There is a \n after each entry to make a new line for each subsequent entry.
+
+![Image]()
+Screenshot 2
+My code calls handleRequest(URI url).
+
+The argument of handleRequest is /add-message?s=Pain.
+The values of the relevant fields are num = 1, entry = "1. Bonjour", and list = "1. Bonjour" since those values carried over from the previous request.
+
+num increases by 1 to become 2 since this is the second request. entry is set to "1. Bonjour" as that is the number set by num and the query after the equal sign, "Pain". list is set to "1. Bonjour \n 2. Pain" because it includes all entries up to and including this current entry. Again, \n denotes a new line.
+
+
+# Step 2
