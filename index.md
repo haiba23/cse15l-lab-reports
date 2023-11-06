@@ -99,19 +99,18 @@ entry. Again, \n denotes a new line.
 # Step 2
 The path to the private key for the SSH key:
 
-![Image](TruePrivateSSH.PNG)
+![Image](LabReport3PrivateKey.PNG)
 
 
-The path is in /home/linux/ieng6/cs15lfa23/cs15lfa23bl/.ssh/id_rsa.
-
+The path is in /home/.ssh/id_rsa.
 
 
 The path to the public key for the SSH key:
 
-![Image](TruePublicSSH.PNG)
+![Image](LabReport3ieng6PublicKey.PNG)
 
 
-The path is in /home/.ssh/id_ed25519.
+The path is in /home/linux/ieng6/cs15lfa23/cs15lfa23bl/.ssh/id_rsa.pub.
 
 Logging into ieng6 with my course-specific account on the terminal:
 
@@ -119,3 +118,177 @@ Logging into ieng6 with my course-specific account on the terminal:
 
 # Step 3
 In Weeks 2 and 3 I learned about the ssh command and how I could log into my CS15L UCSD account from anywhere. The most interesting part about the ssh command was how I could remove the need to type in the password every time in VSC. I'm still a little confused on how it stores folders and how I can access and change them though.
+
+
+
+
+
+
+*Lab Report 3*
+---
+# Part 1 - Bugs
+
+The bug I chose is averageWithoutLowest() in ArrayExamples.java, which removes all instances of the lowest number when calculating the average.
+
+# The Failure-Inducing Input
+
+~~~
+@Test
+  public void testAverageWithoutLowestFail() {
+    double[] test = {5,7,5};
+    double result = ArrayExamples.averageWithoutLowest(test);
+
+    assertEquals(6, result, 0.001);
+
+  } 
+~~~
+
+# The Passing Input
+
+~~~
+@Test
+  public void testAverageWithoutLowestPass() {
+    // Expected is 9, actual is 9
+    double[] test = {3,9,9};
+    double result = ArrayExamples.averageWithoutLowest(test);
+    assertEquals(9, result, 0.001);
+  }
+~~~
+
+# The Symptom
+
+![Image](LabReport3Symptom.PNG) 
+
+# The Bug
+
+*Before*
+~~~
+static double averageWithoutLowest(double[] arr) {
+    if(arr.length < 2) { return 0.0; }
+    double lowest = arr[0];
+    for(double num: arr) {
+      if(num < lowest) { lowest = num; }
+    }
+    double sum = 0;
+    for(double num: arr) {
+      if(num != lowest) { sum += num; }
+    }
+    return sum / (arr.length - 1);
+  }
+~~~
+
+*After*
+~~~
+static double averageWithoutLowestFixed(double[] arr) {
+    if(arr.length < 2) { return 0.0; }
+    double lowest = arr[0];
+    for(double num: arr) {
+      if(num < lowest) { lowest = num; }
+    }
+    double sum = 0;
+    int oneLowest = 0;
+    for(double num: arr) {
+      if(num != lowest && oneLowest == 0) { 
+        sum += num; 
+        oneLowest++;
+      }
+    }
+    return sum / (arr.length - 1);
+  }
+~~~
+
+This fix makes sure that only one instance of the lowest number
+is not added to the sum with the inclusion of oneLowest, which
+keeps track (0 means the lowest has not been passed yet, 1+ means
+it has).
+
+# Part 2 - Researching Commands
+All information about grep command-line options come from this website: 
+https://www.geeksforgeeks.org/grep-command-in-unixlinux/.
+It provides brief explanations of what each option does and an example,
+which I used to compare my results with ./technical.
+
+*grep -i: file*
+~~~
+$ grep -i "ion" ./technical/biomed/rr37.txt
+        Introduction
+        Asthma is a common condition in general medical
+        disease severity [ 2]. The hospitalization rate, another
+        population-level marker of asthma severity, remains [...]
+~~~
+grep -i does a case sensitive search for a string in a given file, 
+returning the lines in a file that contain the given string. This 
+is useful for finding a specific word(s) or phrase(s) within the 
+lines in a file, including ones with uppercase letters.
+
+
+*grep -i: directory*
+~~~
+$ grep -i "ion" ./technical/biomed
+grep: ./technical/biomed: Is a directory
+~~~
+grep -i searches for a given string in a file. It does not seem 
+to work for directories, which itself does not have a string.
+
+
+*grep -c: file*
+~~~
+$ grep -c "pathogenesis" ./technical/biomed/rr166.txt
+3
+~~~
+grep -c returns the number of lines in a file that match the 
+string given. It is case-sensitive and does not count duplicates 
+if there exists more than one instance of the given string in 
+the same line, just one count per line. This is useful for 
+finding a specific count of how many lines contain the string, 
+like if there were thousands of lines in a file or checking multiple files.
+
+
+*grep -c: directory*
+~~~
+$ grep -c "pathogenesis" ./technical/biomed
+grep: ./technical/biomed: Is a directory
+0
+~~~
+grep -c counts the lines in a file that contains the string, 
+case-sensitive. It does not work on a directory, which has 
+no lines in itself.
+
+
+*grep -l: file*
+~~~
+$ grep -l "Introduction" ./technical/biomed/rr172.txt
+./technical/biomed/rr172.txt
+~~~
+grep -l returns the file name that has the string within it. 
+This could be useful when you don't need to find the number 
+of lines or the lines themselves that match, and you just 
+need the file or the path that does.
+
+
+*grep -l: directory*
+~~~
+$ grep -l "Introduction" ./technical/biomed
+grep: ./technical/biomed: Is a directory
+~~~
+grep -l returns a file name that has the matching string, 
+but it doesn't work on directories.
+
+
+*grep -n: file*
+~~~
+$ grep -n "Synopsis" ./technical/biomed/ar120.txt
+5:        Synopsis
+~~~
+grep -n shows the line number in a file that contains the 
+string. This is useful for pinning down the locations of 
+the string if you know that it exists somewhere within the 
+file.
+
+*grep -n: directory*
+~~~
+$ grep -n "Synopsis" ./technical/biomed
+grep: ./technical/biomed: Is a directory
+~~~
+grep -n cannot return the line number of the string for 
+directories because they are not files.
