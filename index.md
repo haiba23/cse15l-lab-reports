@@ -296,6 +296,7 @@ directories because they are not files.
 
 *Lab Report 4*
 ---
+
 # 4. Log into ieng6
 ![Image](LabReport4Step4.PNG)
 ~~~
@@ -303,6 +304,8 @@ Keys pressed: <up>
 To log in, the only key I needed to press was the up key, as that was the last command
 I entered before reproducing this task. ssh is used to connect to my ieng6 UCSD server.
 ~~~
+
+
 # 5. Clone your fork of the repository from your Github account
 ![Image](LabReport4Step5.PNG) 
 ~~~
@@ -311,6 +314,8 @@ I forked list-examples-grader in the beginning of the lab, so I used the git clo
 command and copied the URL from the green <> Code button to clone my fork from my
 Github account into VSC.
 ~~~
+
+
 # 6. Run the tests, demonstrating that they fail
 ![Image](LabReport4Step6.PNG) 
 ~~~
@@ -318,6 +323,8 @@ Keys pressed: cd lab7 <Enter> bash test.sh
 I had to change the directory over to lab7, where the cloned fork was in and then
 I ran test.sh. I can see that it ran 2 tests and failed 1.
 ~~~
+
+
 # 7. Edit the code file to fix the failing test
 ![Image](LabReport4Step7.PNG) 
 ~~~
@@ -325,12 +332,16 @@ Keys pressed: 44 <Shift + g>, e, r2, :wq!
 Thanks to the help of my lab group, we discussed a much faster way to fix the code.
 44 <Shift + g> moves the cursor to the beginning of line 44, right on the 'i' in 'index1'. e moves the cursor to the end of 'index1', on '1'. r2 replaces the '1' the cursor is on to '2'. Lastly, :wq! forcefully saves and exits vim.
 ~~~
+
+
 # 8. Run the tests, demonstrating that they now succeed
 ![Image](LabReport4Step8.PNG) 
 ~~~
 Keys pressed: bash test.sh
 I ran test.sh again and this time, the tests seemed to have passed.
 ~~~
+
+
 # 9. Commit and push the resulting change to your Github account (you can pick any commit message!)
 *Commit*
 ![Image](LabReport4Step9.PNG) 
