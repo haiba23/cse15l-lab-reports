@@ -208,7 +208,7 @@ https://www.geeksforgeeks.org/grep-command-in-unixlinux/.
 It provides brief explanations of what each option does and an example,
 which I used to compare my results with ./technical.
 
-*grep -i: file*
+*grep -i*
 ~~~
 $ grep -i "ion" ./technical/biomed/rr37.txt
         Introduction
@@ -216,25 +216,28 @@ $ grep -i "ion" ./technical/biomed/rr37.txt
         disease severity [ 2]. The hospitalization rate, another
         population-level marker of asthma severity, remains [...]
 ~~~
+~~~
+$ grep -i "I" ./technical/biomed/cc1476.txt
+The use of inhaled bronchodilators to treat children
+        populations, in choice of bronchodilators, or in measured
+          other bronchodilators within 6 hours of the first aerosol
+          bronchodilators may increase oxygen consumption,
+~~~
 grep -i does a case sensitive search for a string in a given file, 
 returning the lines in a file that contain the given string. This 
 is useful for finding a specific word(s) or phrase(s) within the 
-lines in a file, including ones with uppercase letters.
+lines in a file, including ones with uppercase letters. 
 
 
-*grep -i: directory*
-~~~
-$ grep -i "ion" ./technical/biomed
-grep: ./technical/biomed: Is a directory
-~~~
-grep -i searches for a given string in a file. It does not seem 
-to work for directories, which itself does not have a string.
 
-
-*grep -c: file*
+*grep -c*
 ~~~
 $ grep -c "pathogenesis" ./technical/biomed/rr166.txt
 3
+~~~
+~~~
+$ grep -c "β" ./technical/biomed/ar331.txt
+42
 ~~~
 grep -c returns the number of lines in a file that match the 
 string given. It is case-sensitive and does not count duplicates 
@@ -244,21 +247,15 @@ finding a specific count of how many lines contain the string,
 like if there were thousands of lines in a file or checking multiple files.
 
 
-*grep -c: directory*
-~~~
-$ grep -c "pathogenesis" ./technical/biomed
-grep: ./technical/biomed: Is a directory
-0
-~~~
-grep -c counts the lines in a file that contains the string, 
-case-sensitive. It does not work on a directory, which has 
-no lines in itself.
 
-
-*grep -l: file*
+*grep -l*
 ~~~
 $ grep -l "Introduction" ./technical/biomed/rr172.txt
 ./technical/biomed/rr172.txt
+~~~
+~~~
+$ grep -l "Background" ./technical/biomed/gb-2000-1-1-research002.txt
+./technical/biomed/gb-2000-1-1-research002.txt 
 ~~~
 grep -l returns the file name that has the string within it. 
 This could be useful when you don't need to find the number 
@@ -266,32 +263,23 @@ of lines or the lines themselves that match, and you just
 need the file or the path that does.
 
 
-*grep -l: directory*
-~~~
-$ grep -l "Introduction" ./technical/biomed
-grep: ./technical/biomed: Is a directory
-~~~
-grep -l returns a file name that has the matching string, 
-but it doesn't work on directories.
 
-
-*grep -n: file*
+*grep -n*
 ~~~
 $ grep -n "Synopsis" ./technical/biomed/ar120.txt
 5:        Synopsis
+~~~
+~~~
+$ grep -n "sepsis" ./technical/biomed/cc2358.txt
+40:        sepsis.
+44:        We studied critically ill patients with sepsis caused by
+95:        urinary tract infection (one case), catheter-related sepsis
+96:        (three cases), and sepsis of unknown primary origin (four
 ~~~
 grep -n shows the line number in a file that contains the 
 string. This is useful for pinning down the locations of 
 the string if you know that it exists somewhere within the 
 file.
-
-*grep -n: directory*
-~~~
-$ grep -n "Synopsis" ./technical/biomed
-grep: ./technical/biomed: Is a directory
-~~~
-grep -n cannot return the line number of the string for 
-directories because they are not files.
 
 
 *Lab Report 4*
