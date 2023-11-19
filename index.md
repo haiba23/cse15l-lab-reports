@@ -326,11 +326,16 @@ I ran test.sh. I can see that it ran 2 tests and failed 1.
 
 
 # 7. Edit the code file to fix the failing test
+![Image](LR4ShiftG.PNG)
+![Image](LR4E.PNG)
 ![Image](LabReport4Step7.PNG) 
 ~~~
 Keys pressed: 44 <Shift + g>, e, r2, :wq!
 Thanks to the help of my lab group, we discussed a much faster way to fix the code.
-44 <Shift + g> moves the cursor to the beginning of line 44, right on the 'i' in 'index1'. e moves the cursor to the end of 'index1', on '1'. r2 replaces the '1' the cursor is on to '2'. Lastly, :wq! forcefully saves and exits vim.
+44 <Shift + g> moves the cursor to the beginning of line 44, right on the 'i' in 'index1'.
+e moves the cursor to the end of 'index1', on '1'.
+r2 replaces the '1' the cursor is on to '2'.
+Lastly, :wq! forcefully saves and exits vim.
 ~~~
 
 
