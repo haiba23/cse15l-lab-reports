@@ -347,3 +347,88 @@ ListExamples.java".
 ~~~
 To push the change, I clicked "Push origin".
 ~~~
+
+
+*Lab Report 5*
+---
+# Part 1 - Debugging Scenario
+
+*1. Original Post*
+Subject: Grading Test Failures
+The Filter Method and Symptom
+![Image](LR5P1-1.PNG)
+
+I'm trying to figure out another way of writing the filter() method in ListExamples.java. However, when compiling it I got an error that says that it can't find the variable Collectors, which is strange. I have import java.util.* at the top, so I'm guessing that I need to import another package to get it working, but I have no idea which one.
+
+If anyone has an idea of what's causing the failed tests or has any suggestions, I would appreciate the help!
+
+
+*2. TA Suggestion*
+Hi! 
+The error you're encountering indicates that the compiler cannot find the symbol Collectors. Since you are using the .stream() method, you may find it useful to check out this link: https://docs.oracle.com/javase/8/docs/api/java/util/stream/package-summary.html. 
+
+Let us know if you have any follow-up questions! 
+
+*3. Student Description of Bug*
+
+![Image](LR5P3-1.PNG)
+Thanks for pointing that out! It slipped my mind that I had a stream method. I think the bug here was that the code couldn't compile because it couldn't find the variable Collectors, which was not properly imported.
+
+*4. The Setup*
+File needed: ListExamples.java
+Directory: ~/OneDrive/Documents/GitHub/grader-review2
+
+*ListExamples.java Before*
+~~~
+import java.util.*;
+
+interface StringChecker { boolean checkString(String s); }
+
+class ListExamples {
+
+  // Returns a new list that has all the elements of the input list for which
+  // the StringChecker returns true, and not the elements that return false, in
+  // the same order they appeared in the input list;
+  static List<String> filter(List<String> list, StringChecker sc) {
+    return 
+        list.stream()
+        .filter(sc::checkString)
+        .collect(Collectors.toList());
+  }
+~~~
+
+*Bug-Triggering Commands*
+~~~
+javac -cp ".;lib/hamcrest-core-1.3.jar;lib/junit-4.13.2.jar" *.java
+java -cp ".;lib/hamcrest-core-1.3.jar;lib/junit-4.13.2.jar" org.junit.runner.JUnitCore TestListExamples
+~~~
+
+
+To fix the bug, I had to fix the correct import statement for the required Collectors class from java.util.stream, which was import java.util.stream.Collectors. I pasted this at the top of the ListExamples.java file and ran the 2 commands again. 
+
+
+*ListExamples.java After*
+~~~
+import java.util.*;
+import java.util.stream.Collectors;
+
+interface StringChecker { boolean checkString(String s); }
+
+class ListExamples {
+
+  // Returns a new list that has all the elements of the input list for which
+  // the StringChecker returns true, and not the elements that return false, in
+  // the same order they appeared in the input list;
+  static List<String> filter(List<String> list, StringChecker sc) {
+    return 
+        list.stream()
+        .filter(sc::checkString)
+        .collect(Collectors.toList());
+  }
+~~~
+
+![Image](LR5P4.PNG)
+
+
+# Part 2 - Reflection
+In the second half of the quarter when we were first learning Vim commands, someone in my lab group spent a good amount of time playing around with it and learning how to make them more efficient. For example, 44 <Shift + g> moves the cursor to the beginning of line 44, which I thought was really cool. In the end, his method for editing that file was incredibly fast, only requiring about 4 commands.
